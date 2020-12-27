@@ -1,0 +1,9 @@
+john m 12 590 195
+james m 12 573 130
+alfred m 14 590 125
+william m 15 565 120
+jane f 12 598 145
+louise f 12 563 170
+barbara f 13 553 180
+mary f 15 565 120
+alice f 13 545 140

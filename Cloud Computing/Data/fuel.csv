@@ -1,0 +1,61 @@
+Make_Model,Weight,Disp.,Mileage,Fuel,Type
+Eagle Summit 4,2560.00,97.00,33.00,3.03,Small
+Ford Escort   4,2345.00,114.00,33.00,3.03,Small
+Ford Festiva 4,1845.00,81.00,37.00,2.70,Small
+Honda Civic 4,2260.00,91.00,32.00,3.13,Small
+Mazda Protege 4,2440.00,113.00,32.00,3.13,Small
+Mercury Tracer 4,2285.00,97.00,26.00,3.85,Small
+Nissan Sentra 4,2275.00,97.00,33.00,3.03,Small
+Pontiac LeMans 4,2350.00,98.00,28.00,3.57,Small
+Subaru Loyale 4,2295.00,109.00,25.00,4.00,Small
+Subaru Justy 3,1900.00,73.00,34.00,2.94,Small
+Toyota Corolla 4,2390.00,97.00,29.00,3.45,Small
+Toyota Tercel 4,2075.00,89.00,35.00,2.86,Small
+Volkswagen Jetta 4,2330.00,109.00,26.00,3.85,Small
+Chevrolet Camaro V8,3320.00,305.00,20.00,5.00,Sporty
+Dodge Daytona,2885.00,153.00,27.00,3.70,Sporty
+Ford Mustang V8,3310.00,302.00,19.00,5.26,Sporty
+Ford Probe,2695.00,133.00,30.00,3.33,Sporty
+Honda Civic CRX Si 4,2170.00,97.00,33.00,3.03,Sporty
+Honda Prelude Si 4WS 4,2710.00,125.00,27.00,3.70,Sporty
+Nissan 240SX 4,2775.00,146.00,24.00,4.17,Sporty
+Plymouth Laser,2840.00,107.00,26.00,3.85,Sporty
+Subaru XT 4,2485.00,109.00,28.00,3.57,Sporty
+Audi 80 4,2670.00,121.00,27.00,3.70,Compact
+Buick Skylark 4,2640.00,151.00,23.00,4.35,Compact
+Chevrolet Beretta 4,2655.00,133.00,26.00,3.85,Compact
+Chrysler Le Baron V6,3065.00,181.00,25.00,4.00,Compact
+Ford Tempo 4,2750.00,141.00,24.00,4.17,Compact
+Honda Accord 4,2920.00,132.00,26.00,3.85,Compact
+Mazda 626 4,2780.00,133.00,24.00,4.17,Compact
+Mitsubishi Galant 4,2745.00,122.00,25.00,4.00,Compact
+Mitsubishi Sigma V6,3110.00,181.00,21.00,4.76,Compact
+Nissan Stanza 4,2920.00,146.00,21.00,4.76,Compact
+Oldsmobile Calais 4,2645.00,151.00,23.00,4.35,Compact
+Peugeot 405 4,2575.00,116.00,24.00,4.17,Compact
+Subaru Legacy 4,2935.00,135.00,23.00,4.35,Compact
+Toyota Camry 4,2920.00,122.00,27.00,3.70,Compact
+Volvo 240 4,2985.00,141.00,23.00,4.35,Compact
+Acura Legend V6,3265.00,163.00,20.00,5.00,Medium
+Buick Century 4,2880.00,151.00,21.00,4.76,Medium
+Chrysler Le Baron Coupe,2975.00,153.00,22.00,4.55,Medium
+Chrysler New Yorker V6,3450.00,202.00,22.00,4.55,Medium
+Eagle Premier V6,3145.00,180.00,22.00,4.55,Medium
+Ford Taurus V6,3190.00,182.00,22.00,4.55,Medium
+Ford Thunderbird V6,3610.00,232.00,23.00,4.35,Medium
+Hyundai Sonata 4,2885.00,143.00,23.00,4.35,Medium
+Mazda 929 V6,3480.00,180.00,21.00,4.76,Medium
+Nissan Maxima V6,3200.00,180.00,22.00,4.55,Medium
+Oldsmobile Cutlass Ciera 4,2765.00,151.00,21.00,4.76,Medium
+Oldsmobile Cutlass Supreme V6,3220.00,189.00,21.00,4.76,Medium
+Toyota Cressida 6,3480.00,180.00,23.00,4.35,Medium
+Buick Le Sabre V6,3325.00,231.00,23.00,4.35,Large
+Chevrolet Caprice V8,3855.00,305.00,18.00,5.56,Large
+Ford LTD Crown Victoria V8,3850.00,302.00,20.00,5.00,Large
+Chevrolet Lumina APV V6,3195.00,151.00,18.00,5.56,Van
+Dodge Grand Caravan V6,3735.00,202.00,18.00,5.56,Van
+Ford Aerostar V6,3665.00,182.00,18.00,5.56,Van
+Mazda MPV V6,3735.00,181.00,19.00,5.26,Van
+Mitsubishi Wagon 4,3415.00,143.00,20.00,5.00,Van
+Nissan Axxess 4,3185.00,146.00,20.00,5.00,Van
+Nissan Van 4,3690.00,146.00,19.00,5.26,Van

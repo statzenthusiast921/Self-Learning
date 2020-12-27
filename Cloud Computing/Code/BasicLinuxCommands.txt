@@ -1,0 +1,51 @@
+################## To install R 3.5.2 
+sudo apt update
+sudo apt install r-base
+
+
+
+#################################### 
+# To install R 3.6.3 in Debian 10 Buster. it often also depends on processors and cores
+
+sudo apt install dirmngr --install-recommends
+
+sudo apt install software-properties-common
+
+sudo apt install apt-transport-https
+
+sudo apt-key adv --keyserver keys.gnupg.net --recv-key 'E19F5F87128899B192B1A2C2AD5F960A256A04AF'
+
+sudo apt update
+
+sudo apt install r-base
+
+###################################
+
+To remove R: sudo apt remove r-base-core
+
+To check past command history: history 
+
+To run your R script:  Rscript testR.R 
+
+To view the R script: cat testR1.R 
+
+To view list of files in current directory: ls
+
+To make directory: $ mkdir data
+# makes directory named data
+
+To know the working directory: pwd
+
+To change Directories:  cd
+# So, if you ever get "lost" on the system and need to reset your bearings, type cd and you'll be placed safely into your home directory. 
+
+You can cd to almost any directory on the system by supplying its full path after the cd command:  cd /usr/bin
+
+To change directory to the one above your current directory, use the double period (dot) argument: cd ..
+
+To removes files and directories: rm myfile.txt
+# removes the myfile.txt
+
+To lists the current running processes: ps
+
+##################################
