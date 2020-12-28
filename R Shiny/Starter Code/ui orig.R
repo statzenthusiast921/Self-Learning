@@ -1,0 +1,3 @@
+fluidPage(
+  verbatimTextOutput("text1")
+  )
