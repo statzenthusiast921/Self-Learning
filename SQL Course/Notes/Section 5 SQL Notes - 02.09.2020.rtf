@@ -1,0 +1,62 @@
+{\rtf1\ansi\ansicpg1252\cocoartf2511
+\cocoatextscaling0\cocoaplatform0{\fonttbl\f0\fswiss\fcharset0 Helvetica;}
+{\colortbl;\red255\green255\blue255;}
+{\*\expandedcolortbl;;}
+\margl1440\margr1440\vieww10800\viewh8400\viewkind0
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\f0\fs24 \cf0 --Examples of Outer Join - 02.09.2020\
+select * from film\
+limit 5\
+select * from inventory\
+limit 5\
+\
+--Outer Join\
+select film.film_id, film.title, inventory.inventory_id\
+from film\
+left outer join inventory \
+on inventory.film_id=film.film_id\
+\
+--causes lots of null values\
+\
+--Where is inventory_id gonna be NULL?\
+select film.film_id, film.title, inventory.inventory_id\
+from film\
+left outer join inventory \
+on inventory.film_id=film.film_id\
+where inventory.film_id is NULL\
+order by film.film_id\
+\
+--Unions\
+--The Union operator combines result sets of two or\
+--more SELECT statements into a single result set\
+\
+--SELECT col1, col2\
+--FROM table1\
+--UNION\
+--SELECT col1, col2\
+--FROM tabl2\
+\
+--columns selected must have the same data types by column\
+\
+--UNION operator removes all duplicate rows unless\
+--UNION ALL is used\
+\
+--UNION operator may place the rows in the first\
+--query before, after, or between the rows in the\
+--result set of the second query\
+\
+--To sort the rows in the combined result set\
+--by a specified column, you use the ORDER BY caluse\
+\
+--Often use UNION operator to combine data from similar\
+--tables that are not perfectly normalized\
+\
+select film_id, last_update \
+from film\
+UNION \
+select inventory_id, last_update \
+from inventory\
+\
+--kind of works like concatenation \
+}

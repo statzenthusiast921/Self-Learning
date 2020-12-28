@@ -1,0 +1,264 @@
+{\rtf1\ansi\ansicpg1252\cocoartf2511
+\cocoatextscaling0\cocoaplatform0{\fonttbl\f0\fswiss\fcharset0 Helvetica;}
+{\colortbl;\red255\green255\blue255;}
+{\*\expandedcolortbl;;}
+\margl1440\margr1440\vieww10800\viewh8400\viewkind0
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\f0\fs24 \cf0 --Creating Tables 02.13.2020\
+\
+--1.) column name\
+--2.) column data type\
+--3.) constraint\
+\
+--Example 1\
+create table account(\
+user_id serial PRIMARY KEY,\
+username VARCHAR(50) UNIQUE NOT NULL,\
+password VARCHAR(50) NOT NULL,\
+email VARCHAR(355) UNIQUE NOT NULL,\
+created_on TIMESTAMP NOT NULL,\
+last_login TIMESTAMP\
+)\
+\
+--Example 2\
+create table role(\
+role_id serial PRIMARY KEY,\
+role_name VARCHAR(255) UNIQUE NOT NULL\
+)\
+\
+--Exercise\
+create table exercise(\
+customer_id serial primary key,\
+first_name VARCHAR(50) not null,\
+last_name VARCHAR(50) not null,\
+email VARCHAR(300) unique not null,\
+num_min integer not null,\
+sign_up_date timestamp not null\
+)\
+\
+--INSERT ROWS\
+create table link(\
+ID serial primary key,\
+url varchar(255) not null,\
+name varchar(255) not null,\
+description varchar(255),\
+rel varchar(50)\
+)\
+--Check to see if the table created\
+select * from link\
+\
+--insert 2 values into one row\
+insert into link(url,name)\
+values\
+('www.google.com','Google')\
+\
+--Check to make sure it worked\
+select * from link\
+\
+--Again --> id increments to 2\
+insert into link(url,name)\
+values\
+('www.yahoo.com','Yahoo')\
+select * from link\
+\
+\
+--Let's insert multiple rows at once\
+insert into link(url,name)\
+values\
+('www.bing.com','Bing'),\
+('www.amazon.com','Amazon')\
+select * from link\
+\
+\
+--Let's insert data from another table\
+create table link_copy (LIKE link)\
+--will create another table with same structure as link\
+select * from link_copy\
+\
+\
+insert into link_copy\
+select * from link\
+where name='Bing'\
+select * from link_copy\
+\
+\
+--Update Statement\
+update link\
+set description='Empty Description'\
+select * from link\
+\
+--Update only certain rows based on condition\
+update link\
+set description='Name starts with an A'\
+where name like 'A%'\
+select * from link\
+\
+--Update columns by matching description and name columns\
+update link\
+set description=name\
+select * from link\
+\
+--Get results back\
+update link\
+set description='New description'\
+where id=1\
+returning id,url,name,description\
+\
+--Delete statement\
+select * from link\
+\
+delete from link\
+where name like 'B%'\
+select * from link\
+\
+delete from link\
+where name like 'A%'\
+returning \
+\
+\
+--ALTER TABLE commands\
+drop table if exists link\
+\
+create table link(\
+link_id serial primary key,\
+title varchar(512) not null,\
+url varchar(1024) not null unique\
+)\
+\
+--Add new column to table\
+--1.) column name\
+--2.) column data type\
+ALTER TABLE link add column active boolean\
+select * from link\
+\
+--Drop column\
+alter table link drop column active\
+select * from link\
+\
+--Rename columns\
+alter table link rename column title to  new_title_name\
+select * from link\
+\
+--Rename table\
+alter table link rename to url_table\
+select * from link\
+-- doesn't work\
+select * from url_table\
+--works\
+\
+\
+--DROP TABLES\
+create table test_two(\
+test_id serial primary key\
+)\
+select * from test_two\
+\
+drop table test_two\
+select * from test_two\
+--should get an error since this table doesn't exist anymore\
+\
+\
+--What happens if you try to drop it again?\
+drop table test_two\
+\
+drop table if exists test_two\
+--you don't get a warning\
+--you get a notice: table does not exist, skips command\
+\
+\
+---CHECK CONSTRAINTS\
+\
+--user has to be born after 1900\
+create table new_users(\
+id serial primary key,\
+first_name varchar(50),\
+birth_date date check(birth_date>'1900-01-01'),\
+join_date date check(join_date > birth_date),\
+salary integer check(salary>0)\
+)\
+select * from new_users\
+\
+insert into new_users(first_name,birth_date,join_date,salary)\
+values('Joe','1980-01-29','1990-05-15',-10)\
+--check violation\
+\
+--Another example --name your constraints\
+create table checktest(\
+sales integer constraint positive_sales check(sales>0)\
+)\
+insert into checktest(sales)\
+values(10)\
+returning sales\
+\
+insert into checktest(sales)\
+values(-10)\
+\
+\
+--NOT NULL CONSTRAINT\
+create table learn_null(\
+first_name varchar(50),\
+sales integer not null\
+)\
+insert into learn_null(first_name)\
+values('Jon')\
+--you get an error because we didn't specify a value for sales\
+--so it by default inserts 'NULL' which we constrained the column\
+--against\
+\
+insert into learn_null(first_name,sales)\
+values('Jon',500)\
+returning first_name,sales\
+\
+select * from learn_null\
+\
+\
+--UNIQUE CONSTRAINT\
+create table people(\
+id serial primary key,\
+first_name varchar(50),\
+email varchar(100) unique\
+)\
+\
+insert into people(id,first_name,email)\
+values (1,'Joe','joe@hoe.com')\
+select * from people\
+\
+insert into people(id,first_name,email)\
+values(2,'Jason','joe@hoe.com')\
+--violates unique constraint\
+\
+---Assessment Test #3\
+\
+create table students(\
+student_id serial primary key,\
+first_name varchar(50) not null,\
+last_name varchar(50) not null,\
+homeroom_num integer not null,\
+phone_num varchar(50) not null unique,\
+email varchar(150) not null unique,\
+grad_yr integer not null\
+)\
+select * from students\
+\
+create table teachers(\
+teacher_id serial primary key,\
+first_name varchar(50) not null,\
+last_name varchar(50) not null,\
+homeroom_num integer not null,\
+department varchar(100) not null,\
+email varchar(150) not null unique,\
+phone_num varchar(50) not null unique\
+)\
+select * from students\
+insert into students(student_id,first_name,last_name,\
+					 homeroom_num,phone_num,email,grad_yr)\
+values(1,'Mark','Watney',5,'777-555-1234','N/A',2035)\
+\
+\
+select * from teachers\
+insert into teachers\
+values(1,'Jonas','Salk',5,'Biology','jsalk@school.org','777-555-4321')\
+\
+\
+}

@@ -1,0 +1,85 @@
+{\rtf1\ansi\ansicpg1252\cocoartf2511
+\cocoatextscaling0\cocoaplatform0{\fonttbl\f0\fswiss\fcharset0 Helvetica;}
+{\colortbl;\red255\green255\blue255;}
+{\*\expandedcolortbl;;}
+\margl1440\margr1440\vieww10800\viewh8400\viewkind0
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\f0\fs24 \cf0 --SUBQUERIES - 02.09.2020\
+\
+--Allows us to use multiple SELECT statements,\
+--where we basically have a query w/in a query\
+\
+--Example 1: Find films whose rental rates \
+--is higher than average rental rate\
+\
+select * from film\
+limit 5\
+\
+--Long way to do solve this problem\
+select avg(rental_rate)\
+from film\
+select title, rental_rate\
+from film\
+where rental_rate >2.98\
+\
+--Better way is to use subquery\
+--Define: subquery is a query nested inside another query\
+--To construct a subquery: we put the second query in brackets\
+--and use it in the WHERE clause as an expression\
+\
+select title, rental_rate \
+from film\
+where rental_rate > (select avg(rental_rate) from film)\
+\
+\
+--Example 2: Get films returned between May 29th and May 30th\
+select * from rental\
+select * from inventory\
+\
+---------------------------------------------\
+select film_id, title\
+from film\
+where film_id in\
+\
+(select inventory.film_id\
+from rental inner join inventory \
+on inventory.inventory_id = rental.inventory_id\
+where return_date between '2005-05-29' and '2005-05-30')\
+\
+---------------------------------------------\
+\
+\
+--SELF JOINS\
+--Use self joins when you want to combine rows with\
+--other rows in the same table\
+\
+--To perform the self join operation, you must\
+--use a table alias to help SQL distinguish the left\
+--table from the right table of the same table\
+\
+\
+--Suppose we want to find out which employees are from\
+--the same location as the employee named Joe (NYC)\
+\
+--Have employee_name, employee location columns\
+\
+--Let's assume we cant just directly search for people\
+--who live in NYC - dont want to hardcode it (assume he moves)\
+--We could use a subquery\
+--more efficient to use self join\
+\
+\
+--Let's find all the customers where their last names \
+--match first names of other customers\
+\
+select * from customer\
+\
+select a.customer_id, a.first_name, a.last_name, b.customer_id, b.first_name, b.last_name\
+from customer as a, customer as b\
+where a.first_name=b.last_name\
+\
+--Aother way to write this\
+select a.customer_id, a.first_name, a.last_name, b.customer_id, b.first_name, b.last_name\
+from customer as a JOIN customer as b\
+on a.first_name=b.last_name}
